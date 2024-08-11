@@ -7457,16 +7457,6 @@ body {
     width: 100%;
   }
 }
-@media only screen and (max-width: 600px) {
-  #home {
-    background-position: 94% 50%;
-  }
-}
-@media only screen and (max-width: 425px) {
-  #home {
-    background-position: 84% 50%;
-  }
-}
 
 .underline-area {
   display: flex;
