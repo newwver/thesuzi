@@ -6386,7 +6386,7 @@ input[type='submit']:hover {
     font-size: 48px;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .change-text {
     font-size: 40px;
   }
@@ -7326,7 +7326,7 @@ body {
     font-size: 48px;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .slide.type-3 .slider-info .user-info-top .user-info-header .title {
     font-size: 35px;
   }
@@ -8050,7 +8050,7 @@ body {
   transform: translateX(0);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .notice-title {
     font-size: clamp(2.3rem, 4vw, 3rem);
     letter-spacing: 0.05em;
@@ -9417,4 +9417,9 @@ button.close {
 }
 .sns-list li a img {
   height: 30px;
+}
+@media only screen and (max-width: 575px) {
+  .box-wrapper .main-page-wrapper {
+    height: 20px;
+  }
 }
