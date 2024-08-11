@@ -78,26 +78,23 @@
       const nextBtn = document.getElementById('nextBtn');
       let currentIndex = 0;
 
-      // 모달에 이미지를 설정하는 함수
       const showImage = (index) => {
         const targetImg = imageContainers[index].querySelector('img');
         modalImg.src = targetImg.src;
       };
 
-      // 이미지 컨테이너에 클릭 이벤트 추가
       imageContainers.forEach((container, index) => {
         container.addEventListener('click', function () {
-          currentIndex = index; // 현재 이미지를 가리키는 인덱스 설정
-          showImage(currentIndex); // 클릭된 이미지로 모달 이미지 설정
+          currentIndex = index;
+          showImage(currentIndex);
         });
       });
 
-      // 이전 이미지로 이동
       prevBtn.addEventListener('click', function () {
         currentIndex = currentIndex === 0 ? imageContainers.length - 1 : currentIndex - 1;
         showImage(currentIndex);
       });
-      // 다음 이미지로 이동
+
       nextBtn.addEventListener('click', function () {
         currentIndex = currentIndex === imageContainers.length - 1 ? 0 : currentIndex + 1;
         showImage(currentIndex);
