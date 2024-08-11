@@ -7922,6 +7922,23 @@ body {
   height: 100%;
   transition: 0.5s all ease-in-out;
 }
+.more-btn {
+  position: relative;
+  border: 0.0625rem solid #7b5d44;
+  color: var(--color-primary);
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.5rem 2.5rem 1.3rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.more-btn:hover {
+  background: #cfbdb0;
+  transition: all 0.5s;
+  color: #fff;
+  border-color: #ffffff;
+}
 @media (max-width: 991px) {
   .portfolio-wrap {
     grid-template-columns: 1fr 1fr;
