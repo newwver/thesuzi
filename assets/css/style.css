@@ -7456,12 +7456,14 @@ body {
   .slide.type-4.instructor-fitness .content .inner p.discs {
     width: 100%;
   }
+  .slide.type-4 {
+    min-height: 500px;
+  }
 }
 @media only screen and (max-width: 480px) {
   .slide.type-4 {
     height: 94vh;
     background-attachment: scroll;
-    min-height: 500px;
   }
 }
 
