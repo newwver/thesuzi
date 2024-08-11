@@ -7038,13 +7038,13 @@ body {
   color: #ffecde;
   font-family: var(--font-secondary);
   font-weight: 400;
-  font-size: 4.12rem;
+  font-size: 4rem;
   line-height: 1.35;
   margin-bottom: 22px;
 }
 .slide .content span.subtitle {
   display: block;
-  font-size: 1.8rem;
+  font-size: clamp(1.8rem, 2.3vw, 2.1rem);
   font-family: var(--font-secondary);
   font-weight: 400;
   /* color: var(--color-subtitle); */
@@ -7057,33 +7057,29 @@ body {
 }
 @media only screen and (max-width: 767px) {
   .slide .content .title {
-    font-size: clamp(1.9rem, 5.6vw, 3.3rem);
+    font-size: clamp(3rem, 5.5vw, 3.9rem);
     line-height: 1.2;
   }
+  .slide .content .title .mo-block {
+    display: none;
+  }
   .slide .content span.subtitle {
-    font-size: clamp(1.2rem, 3.5vw, 1.45rem);
-    line-height: 1.4;
+    font-size: clamp(1.4rem, 3.5vw, 1.6rem);
+    line-height: 1.25;
     letter-spacing: 1px;
-    margin-top: 18px;
+    margin-top: 20px;
   }
 }
-.slide .content .home-inner p.discs {
-  font-size: 18px;
-  width: 50%;
-}
-@media only screen and (max-width: 767px) {
-  .slide .content .home-inner p.discs {
-    width: 80%;
+@media only screen and (max-width: 460px) {
+  .slide .content .title .mo-block {
+    display: block;
   }
-}
-@media only screen and (max-width: 575px) {
-  .slide .content .home-inner p.discs {
-    width: 80%;
+  .slide .content span.subtitle .mo-block {
+    display: none;
   }
-}
-@media only screen and (max-width: 479px) {
-  .slide .content .home-inner p.discs {
-    width: 100%;
+  .slide .content .title {
+    font-size: clamp(2.5rem, 7vw, 3rem);
+    line-height: 1.2;
   }
 }
 .slide .content .home-inner .description {
@@ -7461,11 +7457,11 @@ body {
     min-height: 500px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
   .slide.type-4 {
     height: 94vh;
     background-attachment: scroll;
-    max-height: 120vw;
+    max-height: 130vw;
   }
 }
 
@@ -8889,7 +8885,7 @@ button.close {
   }
   .brand-desc {
     padding: 0 20px;
-    font-size: 1.5rem;
+    font-size: clamp(1.6rem, 3.5vw, 1.8rem);
   }
 }
 
