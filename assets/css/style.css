@@ -7438,6 +7438,7 @@ body {
 }
 #home {
   background: url(../images/other/visual.jpg) no-repeat 50% 50%;
+  background-attachment: scroll;
   background-size: cover;
 }
 .slide.type-4 .content {
