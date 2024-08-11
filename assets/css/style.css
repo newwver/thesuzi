@@ -529,7 +529,7 @@ ol ul {
   .bumper {
     padding: 80px 0;
   }
-  .mo-only {
+  .mo-block {
     display: block;
   }
 }
@@ -8021,7 +8021,7 @@ body {
   overflow: hidden;
 }
 .notice-title {
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
   font-size: 3.2rem;
@@ -8083,7 +8083,7 @@ body {
     display: inline-flex;
   }
   .notice-title {
-    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    font-size: clamp(1.8rem, 4.7vw, 2.3rem);
   }
   .book-btn {
     font-size: 1.1rem;
@@ -9441,5 +9441,8 @@ button.close {
 @media only screen and (max-width: 575px) {
   .box-wrapper .main-page-wrapper {
     height: 20px;
+  }
+  .sns-list li a img {
+    height: 25px;
   }
 }
