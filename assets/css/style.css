@@ -7460,6 +7460,7 @@ body {
 @media only screen and (max-width: 480px) {
   .slide.type-4 {
     height: 90vh;
+    background-attachment: scroll;
     min-height: 500px;
   }
 }
