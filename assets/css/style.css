@@ -8257,7 +8257,7 @@ body {
     bottom: 30px;
     width: 35px;
     height: 35px;
-    box-shadow: 1px 1px 10px #c5b89f, -1px -1px 5px #f1ede5;
+    box-shadow: 1px 1px 5px #c5b89f, -1px -1px 5px #f1ede5;
     line-height: 1.9;
   }
   .go-top svg {
