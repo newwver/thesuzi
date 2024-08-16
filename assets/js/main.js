@@ -72,31 +72,43 @@
     },
 
     modalImageData: function () {
+      const modal = document.querySelector('.modal');
       const modalImg = document.getElementById('modalImage');
       const imageContainers = document.querySelectorAll('.sec-portfolio');
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
       let currentIndex = 0;
+      let filteredImages = [];
 
       const showImage = (index) => {
-        const targetImg = imageContainers[index].querySelector('img');
+        const targetImg = filteredImages[index].querySelector('img');
         modalImg.src = targetImg.src;
+      };
+
+      const filterImages = (target) => {
+        filteredImages = Array.from(imageContainers).filter(
+          (container) => container.getAttribute('data-bs-target') === target,
+        );
       };
 
       imageContainers.forEach((container, index) => {
         container.addEventListener('click', function () {
-          currentIndex = index;
+          const targetModalId = container.getAttribute('data-bs-target');
+          filterImages(targetModalId);
+          currentIndex = filteredImages.indexOf(container);
           showImage(currentIndex);
+          modal.setAttribute('id', targetModalId.replace('#', ''));
+          $(modal).modal('show');
         });
       });
 
       prevBtn.addEventListener('click', function () {
-        currentIndex = currentIndex === 0 ? imageContainers.length - 1 : currentIndex - 1;
+        currentIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
         showImage(currentIndex);
       });
 
       nextBtn.addEventListener('click', function () {
-        currentIndex = currentIndex === imageContainers.length - 1 ? 0 : currentIndex + 1;
+        currentIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
         showImage(currentIndex);
       });
     },
