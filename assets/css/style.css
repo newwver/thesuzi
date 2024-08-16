@@ -8524,7 +8524,7 @@ body {
 -----------------------------*/
 .modal {
   z-index: 99999999;
-  background: rgb(0 0 0 / 73%);
+  background: rgb(0 0 0 / 85%);
   padding: 60px 15px !important;
   overflow: auto;
   scrollbar-width: none;
@@ -8546,7 +8546,7 @@ body.modal-open {
 }
 .modal .modal-dialog {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .modal .modal-dialog .modal-content {
   padding: 45px;
@@ -8697,15 +8697,24 @@ button.close {
   width: 19px;
 }
 .modal .modal-dialog .modal-content .modal-body .arrow-btn {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  right: -30px;
   display: flex;
   justify-content: space-between;
+  transition: all 0.3s;
 }
 .modal .modal-dialog .modal-content .modal-body .arrow-btn a {
   display: flex;
   width: 40px;
-  height: 40px;
+  height: 100px;
   align-items: center;
   justify-content: center;
+}
+.modal .modal-dialog .modal-content .modal-body .arrow-btn a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.3s;
 }
 .modal .modal-dialog .modal-content .modal-body .arrow-btn i {
   display: inline-block;
@@ -9472,8 +9481,8 @@ button.close {
 .contact-card .contact-description {
   text-align: center;
   font-size: clamp(1.6rem, 4vw, 1.8rem);
-  line-height: 1.4;
-  margin-bottom: 40px;
+  line-height: 1.5;
+  margin-bottom: 50px;
   font-family: var(--font-secondary);
   color: #4a3f35;
 }
@@ -9483,11 +9492,25 @@ button.close {
 }
 
 .contact-card .contact-subtitle {
+  position: relative;
   font-size: 1.55rem;
   font-weight: 600;
   margin-bottom: 10px;
   color: #8b7c75;
   font-family: var(--font-primary);
+}
+
+.contact-card .contact-subtitle::before {
+  content: '';
+  position: absolute;
+  top: 47%;
+  left: -13px;
+  width: 4px;
+  height: 4px;
+  border-radius: 2rem;
+  margin-top: -2px;
+  transform: translate(0, -50%);
+  background-color: var(--color-lighter);
 }
 
 .contact-info p {
@@ -9497,14 +9520,14 @@ button.close {
 }
 
 .contact-info a {
-  color: #1367c1;
+  color: #404e5d;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
 .contact-info a:hover {
-  border-bottom: 1px solid #1367c1;
+  border-bottom: 1px solid #404e5d;
 }
 
 @media (min-width: 599px) {
