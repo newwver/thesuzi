@@ -8742,19 +8742,19 @@ button.close {
 }
 .modal .modal-dialog .modal-content .modal-body .arrow-btn a {
   display: flex;
-  width: 40px;
+  width: 50px;
   height: 100px;
   align-items: center;
   justify-content: center;
 }
 .modal .modal-dialog .modal-content .modal-body .arrow-btn a:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   transition: all 0.3s;
 }
 .modal .modal-dialog .modal-content .modal-body .arrow-btn i {
   display: inline-block;
-  width: 15px;
-  height: 20px;
+  width: 20px;
+  height: 25px;
   background: url(../images/icons/ico_nav_arrow.svg) no-repeat 50% 50%;
   background-size: contain;
 }
