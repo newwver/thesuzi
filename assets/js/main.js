@@ -162,7 +162,7 @@
     },
 
     enableStickyHeader: function () {
-      const headerSticky = this.document.querySelector('#mainPage .header--sticky');
+      const headerSticky = this.document.querySelector('.header--sticky');
       if (headerSticky) {
         this.window.addEventListener(
           'scroll',
