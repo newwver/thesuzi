@@ -59,6 +59,9 @@
 
     menuScroll: function () {
       const navLinks = document.querySelectorAll('.header-menu .nav-link');
+      const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+      const languageDropdown = document.getElementById('languageDropdown');
+
       if (navLinks.length > 0) {
         navLinks.forEach((anchor) => {
           anchor.addEventListener('click', function (e) {
@@ -77,6 +80,19 @@
           });
         });
       }
+
+      window.addEventListener('scroll', function () {
+        if (dropdownMenus.length > 0) {
+          dropdownMenus.forEach((menu) => {
+            if (menu.classList.contains('show')) {
+              const dropdown = bootstrap.Dropdown.getInstance(languageDropdown);
+              if (dropdown) {
+                dropdown.hide();
+              }
+            }
+          });
+        }
+      });
     },
 
     modalImageData: function () {

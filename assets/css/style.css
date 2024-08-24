@@ -7038,7 +7038,6 @@ body {
   }
 }
 .slide .content .title {
-  /* color: #a67b5b; */
   color: #ffecde;
   font-family: var(--font-secondary);
   font-weight: 400;
@@ -7051,9 +7050,16 @@ body {
   font-size: clamp(1.8rem, 2.3vw, 2.1rem);
   font-family: var(--font-secondary);
   font-weight: 400;
-  /* color: var(--color-subtitle); */
   color: #ffe4d0;
   margin-top: 5px;
+}
+html[lang='ko'] .slide .content .title {
+  font-size: clamp(3rem, 2.7vw, 4rem);
+  margin-top: 0;
+}
+html[lang='ko'] .slide .content span.subtitle {
+  font-size: clamp(2rem, 3vw, 2.1rem);
+  margin-top: 0;
 }
 .slide .content .title .header-caption span {
   color: var(--color-white);
@@ -7073,17 +7079,34 @@ body {
     letter-spacing: 1px;
     margin-top: 20px;
   }
+  html[lang='ko'] .slide .content span.subtitle {
+    font-size: clamp(1.6rem, 3.5vw, 1.6rem);
+    line-height: 1.4;
+    letter-spacing: 0;
+    margin-top: 15px;
+  }
 }
 @media only screen and (max-width: 460px) {
   .slide .content .title .mo-block {
     display: block;
   }
-  .slide .content span.subtitle .mo-block {
+  html[lang='en'] .slide .content span.subtitle .mo-block {
     display: none;
   }
   .slide .content .title {
     font-size: clamp(2.5rem, 7vw, 3rem);
     line-height: 1.2;
+  }
+  html[lang='ko'] .slide .content .title {
+    font-size: clamp(2.5rem, 6.6vw, 3rem);
+  }
+}
+@media only screen and (max-width: 335px) {
+  html[lang='ko'] .slide .content span.subtitle .mo-block {
+    display: none;
+  }
+  html[lang='ko'] .slide .content .title {
+    font-size: clamp(2.7rem, 3vw, 3.2rem);
   }
 }
 .slide .content .home-inner .description {
@@ -7960,19 +7983,23 @@ body {
 .btn:focus {
   outline: 2px solid var(--color-lightn);
 }
-@media (max-width: 991px) {
-  .portfolio-wrap {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 @media only screen and (max-width: 991px) {
   .container {
     max-width: 95%;
+  }
+  .portfolio-wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+  .portfolio-wrap > div:nth-last-child(1) {
+    display: none;
   }
 }
 @media only screen and (max-width: 479px) {
   .portfolio-wrap {
     grid-template-columns: 1fr;
+  }
+  .portfolio-wrap > div:nth-last-child(1) {
+    display: block;
   }
   .portfolio-wrap > div:nth-child(3n + 0) {
     -ms-grid-column: span 2;
@@ -8814,11 +8841,11 @@ button.close {
 }
 .brand-desc {
   text-align: center;
-  letter-spacing: 0.07em;
-  font-size: 1.8rem;
-  line-height: 1.625;
+  font-size: 1.9rem;
+  line-height: var(--line-height-b3);
   font-family: var(--font-secondary);
-  color: #4a3f35;
+  text-shadow: 0 0 0 rgba(84, 59, 36, 0.5);
+  color: #543b24;
 }
 .type-7 {
   margin: auto;
@@ -9012,9 +9039,11 @@ button.close {
 .blog .inner .about-desc .description {
   position: relative;
   margin-top: 45px;
-  font-size: 1.8rem;
-  font-family: var(--font-primary);
-  color: #4a3f35;
+  font-size: 1.9rem;
+  font-family: var(--font-secondary);
+  line-height: var(--line-height-b3);
+  text-shadow: 0 0 0 rgba(87, 63, 43, 0.5);
+  color: #573f2b;
   margin-bottom: 20px;
 }
 .blog .inner .about-desc .seperator {
@@ -9139,6 +9168,7 @@ button.close {
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
+  width: 100%;
   column-gap: 6%;
 }
 .blog .inner .about-desc:hover .external-text {
@@ -9298,11 +9328,12 @@ button.close {
   color: var(--color-primary);
 }
 .license-list li p {
-  font-size: 1.8rem;
-  font-family: var(--font-primary);
-  color: #4a3f35;
+  font-size: 1.9rem;
+  font-family: var(--font-secondary);
+  line-height: var(--line-height-b1);
+  text-shadow: 0 0 0 rgba(87, 63, 43, 0.5);
+  color: #573f2b;
   font-weight: 500;
-  line-height: 1.5;
 }
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
   .about-preview .content {
@@ -9695,14 +9726,14 @@ button.close {
   background-color: rgb(255 255 255 / 35%);
   border: 1px solid #dddddd;
   text-align: center;
-  min-width: 8rem;
+  min-width: 7rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 .sec-header.header--fixed.sticky .nav-item.dropdown .dropdown-menu {
   background-color: rgb(255 255 255 / 65%);
 }
 .nav-item.dropdown .dropdown-item {
-  padding: 10px 25px 8px;
+  padding: 10px 15px 8px;
 }
 .mainmenu-nav .primary-menu li.dropdown.current a.dropdown-item {
   color: #6b4633;
