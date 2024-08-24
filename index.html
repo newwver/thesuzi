@@ -42,8 +42,8 @@
     <header class="sec-header haeder-default header--fixed header--sticky">
       <div class="header-wrapper align-items-center justify-content-md-center row rn-popup-mobile-menu">
         <!-- [s] Header Left -->
-        <div class="col-lg-2">
-          <div class="header-logo justify-content-center">
+        <div class="col-lg-2 col-6">
+          <div class="header-logo">
             <div class="logo">
               <a href="javascript:void(0);" class="header-logo--text" onClick="window.location.reload();"> THE SUZI </a>
             </div>
@@ -51,7 +51,7 @@
         </div>
         <!-- [e] Header Left -->
         <!-- [s] Header Right -->
-        <div class="col-lg-10 d-none d-xl-block">
+        <div class="col-lg-10 col-6">
           <div class="header-menu">
             <nav id="sideNav" class="mainmenu-nav nav-position d-none d-xl-block page-navigation">
               <!-- [s] primaryMenu Nav -->
@@ -74,7 +74,9 @@
                     Lang
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                    <li><a class="dropdown-item" href="./index_ko.html" target="_self">KOR</a></li>
+                    <li>
+                      <a class="dropdown-item" href="./index_ko.html" target="_self">KOR</a>
+                    </li>
                     <li>
                       <a class="dropdown-item" href="javascript:void(0);" onClick="window.location.reload();">ENG</a>
                     </li>
@@ -84,12 +86,53 @@
               </ul>
               <!-- [e] primaryMenu Nav -->
             </nav>
+            <!-- Start Header Right  -->
+            <div class="header-right">
+              <div class="hamberger-menu d-block d-xl-none">
+                <i id="menuBtn" class="humberger-menu"></i>
+              </div>
+            </div>
+            <!-- End Header Right  -->
           </div>
         </div>
         <!-- [e] Header Right -->
       </div>
     </header>
     <!-- [e] Header -->
+
+    <!-- Start Popup Mobile Menu  -->
+    <div class="popup-mobile-menu">
+      <div class="inner">
+        <div class="menu-top">
+          <div class="menu-header">
+            <a class="logo" href="index.html">
+              <img src="./assets/images/img_menu.png" load="lazy" alt="Portfolio" />
+            </a>
+            <div class="close-button">
+              <button class="close-menu-activation close"><i data-feather="x"></i></button>
+            </div>
+          </div>
+          <p class="discription">영원한 아름다움을 창조하는 공간, <br />THE SUZI</p>
+        </div>
+        <div class="content">
+          <ul class="primary-menu">
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#brand">Brand</a></li>
+            <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-link" href="#shop">Studio</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="has-droupdown">
+              <a class="nav-link" href="#">Language</a>
+              <ul class="submenu">
+                <li><a href="javascript:void(0);" onClick="window.location.reload();">English</a></li>
+                <li><a href="./index_ko.html" target="_self">Korean</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- end -->
+        </div>
+      </div>
+    </div>
 
     <main class="main-page-wrapper">
       <!-- [s] Home -->
@@ -156,9 +199,9 @@
                     </div>
                     <div class="seperator"></div>
                     <p class="description">
-                      Hello, I am the Director and Chief Artist of THE SUZI. <br />I believe that beauty is not just
-                      about enhancing one’s appearance. it is a vital element that boosts inner confidence and improves
-                      the quality of life. I am here to help you rediscover yourself. Moving forward, I will continue to
+                      Hello, I am the Director and Chief Artist of THE SUZI. I believe that beauty is not just about
+                      enhancing one’s appearance. it is a vital element that boosts inner confidence and improves the
+                      quality of life. I am here to help you rediscover yourself. Moving forward, I will continue to
                       strive to help many more find their confidence through THE SUZI. I look forward to being a part of
                       your journey in creating and enhancing your beauty. Thank you.
                     </p>

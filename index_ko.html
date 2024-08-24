@@ -42,8 +42,8 @@
     <header class="sec-header haeder-default header--fixed header--sticky">
       <div class="header-wrapper align-items-center justify-content-md-center row rn-popup-mobile-menu">
         <!-- [s] Header Left -->
-        <div class="col-lg-2">
-          <div class="header-logo justify-content-center">
+        <div class="col-lg-2 col-6">
+          <div class="header-logo">
             <div class="logo">
               <a href="javascript:void(0);" class="header-logo--text" onClick="window.location.reload();"> THE SUZI </a>
             </div>
@@ -51,7 +51,7 @@
         </div>
         <!-- [e] Header Left -->
         <!-- [s] Header Right -->
-        <div class="col-lg-10 d-none d-xl-block">
+        <div class="col-lg-10 col-6">
           <div class="header-menu">
             <nav id="sideNav" class="mainmenu-nav nav-position d-none d-xl-block page-navigation">
               <!-- [s] primaryMenu Nav -->
@@ -74,9 +74,11 @@
                     Lang
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                    <li><a class="dropdown-item" href="./index.html" target="_self">KOR</a></li>
                     <li>
-                      <a class="dropdown-item" href="javascript:void(0);" onClick="window.location.reload();">ENG</a>
+                      <a class="dropdown-item" href="javascript:void(0);" onClick="window.location.reload();">KOR</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="./index.html" target="_self">ENG</a>
                     </li>
                   </ul>
                 </li>
@@ -84,12 +86,53 @@
               </ul>
               <!-- [e] primaryMenu Nav -->
             </nav>
+            <!-- Start Header Right  -->
+            <div class="header-right">
+              <div class="hamberger-menu d-block d-xl-none">
+                <i id="menuBtn" class="humberger-menu"></i>
+              </div>
+            </div>
+            <!-- End Header Right  -->
           </div>
         </div>
         <!-- [e] Header Right -->
       </div>
     </header>
     <!-- [e] Header -->
+
+    <!-- Start Popup Mobile Menu  -->
+    <div class="popup-mobile-menu">
+      <div class="inner">
+        <div class="menu-top">
+          <div class="menu-header">
+            <a class="logo" href="index.html">
+              <img src="./assets/images/img_menu.png" load="lazy" alt="Portfolio" />
+            </a>
+            <div class="close-button">
+              <button class="close-menu-activation close"><i data-feather="x"></i></button>
+            </div>
+          </div>
+          <p class="discription">영원한 아름다움을 창조하는 공간, <br />THE SUZI</p>
+        </div>
+        <div class="content">
+          <ul class="primary-menu">
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#brand">Brand</a></li>
+            <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-link" href="#shop">Studio</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="has-droupdown">
+              <a class="nav-link" href="#">Language</a>
+              <ul class="submenu">
+                <li><a href="./index.html" target="_self">English</a></li>
+                <li><a href="javascript:void(0);" onClick="window.location.reload();">Korean</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- end -->
+        </div>
+      </div>
+    </div>
 
     <main class="main-page-wrapper">
       <!-- [s] Home -->
@@ -155,10 +198,10 @@
                     </div>
                     <div class="seperator"></div>
                     <p class="description">
-                      안녕하세요, THE SUZI의 원장이자 수석 아티스트 수지입니다. <br />저는 아름다움이란 단순히 외모를
-                      가꾸는 것을 넘어, 내면의 자신감을 높이고 삶의 질을 향상시키는 중요한 요소라고 믿습니다. 이러한
-                      신념을 바탕으로, 고객 여러분이 꿈꾸는 아름다움을 실현하는 데 최선을 다하고 있습니다. 앞으로도 THE
-                      SUZI를 통해 많은 분들이 자신감을 찾으실 수 있도록 최선을 다하겠습니다. 저희 스튜디오에 방문하셔서,
+                      안녕하세요, THE SUZI의 원장이자 수석 아티스트 수지입니다. 저는 아름다움이란 단순히 외모를 가꾸는
+                      것을 넘어, 내면의 자신감을 높이고 삶의 질을 향상시키는 중요한 요소라고 믿습니다. 이러한 신념을
+                      바탕으로, 고객 여러분이 꿈꾸는 아름다움을 실현하는 데 최선을 다하고 있습니다. 앞으로도 THE SUZI를
+                      통해 많은 분들이 자신감을 찾으실 수 있도록 최선을 다하겠습니다. 저희 스튜디오에 방문하셔서,
                       여러분의 아름다움을 만들어가는 여정에 함께할 수 있기를 기대합니다. 감사합니다.
                     </p>
                   </div>

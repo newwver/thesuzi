@@ -27,6 +27,7 @@
       this.menuScroll();
       this.modalImageData();
       this.blogActivation();
+      this.mobileMenuActive();
       this.activateWOW();
       this.activateAOS();
       this.pageNavigation();
@@ -187,6 +188,65 @@
           }.bind(this),
         );
       }
+    },
+
+    mobileMenuActive: function () {
+      const _this = this;
+
+      // 메뉴 열기
+      $('.humberger-menu').on('click', function (e) {
+        e.preventDefault();
+        $('.popup-mobile-menu').addClass('menu-open');
+        _this._html.css({ overflow: 'hidden' });
+      });
+
+      // 메뉴 닫기 함수
+      const closeMenu = function () {
+        $('.popup-mobile-menu').removeClass('menu-open');
+        $('.popup-mobile-menu .has-droupdown > a')
+          .removeClass('open')
+          .siblings('.submenu')
+          .removeClass('active')
+          .slideUp('400');
+        _this._html.css({ overflow: '' });
+      };
+
+      // 닫기 버튼 및 서브메뉴가 아닌 메뉴 링크 클릭 시 메뉴 닫기
+      $('.close-menu-activation, .popup-mobile-menu .primary-menu .nav-link')
+        .not('.has-droupdown > .nav-link')
+        .on('click', function (e) {
+          if ($(this).attr('href').startsWith('#')) {
+            const targetId = $(this).attr('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth',
+              });
+            }
+            closeMenu();
+          } else {
+            closeMenu();
+          }
+        });
+
+      // 메뉴 외부 영역 클릭 시 메뉴 닫기
+      $('.popup-mobile-menu').on('click', function (e) {
+        if (e.target === this) {
+          closeMenu();
+        }
+      });
+
+      // 서브메뉴 토글
+      $('.popup-mobile-menu .has-droupdown > a').on('click', function (e) {
+        e.preventDefault();
+        $(this).toggleClass('open').siblings('.submenu').toggleClass('active').slideToggle('400');
+      });
+
+      // 서브메뉴 링크 클릭 시 메뉴 닫기 방지
+      $('.popup-mobile-menu .submenu a').on('click', function (e) {
+        e.stopPropagation(); // 클릭 이벤트가 상위 메뉴로 전달되지 않도록 방지
+      });
     },
 
     blogActivation: function () {
