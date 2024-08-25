@@ -26,7 +26,7 @@
       this.enableSmoothScroll();
       this.menuScroll();
       this.modalImageData();
-      this.blogActivation();
+      this.galleryActivation();
       this.mobileMenuActive();
       this.activateWOW();
       this.activateAOS();
@@ -248,7 +248,7 @@
       });
     },
 
-    blogActivation: function () {
+    galleryActivation: function () {
       if (typeof $ !== 'undefined' && $('.slide-wrap').length > 0) {
         $('.slide-wrap').slick({
           infinite: true,
