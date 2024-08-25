@@ -6494,18 +6494,9 @@ body {
   max-width: 1920px;
   padding: 0 64px;
   margin: 0 auto;
+  height: 90px;
 }
-@media only screen and (min-width: 1200px) and (max-width: 1599px) {
-  .header-wrapper {
-    padding: 0 30px;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .header-wrapper {
-    padding: 0 30px;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1599px) {
   .header-wrapper {
     padding: 0 30px;
   }
@@ -6542,23 +6533,18 @@ body {
   transition: 0.5s;
   top: 2px;
 }
-
 @media only screen and (max-width: 1199px) {
   #sideNav {
-    width: 250px;
-    height: 100vh;
+    display: flex;
+    opacity: 1;
+    display: inline-block;
     position: fixed;
     right: -250px;
     top: 0;
     z-index: 999;
+    width: 250px;
+    height: 100vh;
     transition: 0.7s;
-    display: flex;
-    opacity: 1;
-  }
-}
-@media only screen and (max-width: 1199px) {
-  #sideNav {
-    display: inline-block;
   }
   #sideNav ul li {
     list-style: none;
@@ -6574,6 +6560,16 @@ body {
   }
   .header-wrapper .header-menu {
     padding-right: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .header-wrapper {
+    height: 70px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header-wrapper {
+    height: 60px;
   }
 }
 .home-sticky .sec-header.header--fixed.sticky {
@@ -6674,20 +6670,6 @@ body {
 }
 .sub-page .sec-header.header--fixed.sticky {
   background-color: transparent;
-}
-
-.sticky .header-wrapper {
-  height: 90px;
-}
-@media only screen and (min-width: 768px) and (max-width: 1199px) {
-  .sticky .header-wrapper {
-    height: 70px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .sticky .header-wrapper {
-    height: 60px;
-  }
 }
 .sticky .header-wrapper .logo img {
   max-width: 90%;
@@ -7643,6 +7625,9 @@ html[lang='ko'] .slide .content span.subtitle {
     height: 94vh;
     background-attachment: scroll;
     max-height: 130vw;
+  }
+  #home {
+    background-position: 44% 50%;
   }
 }
 
