@@ -104,73 +104,81 @@
       const nextBtn = document.getElementById('nextBtn');
       const closeButton = document.querySelector('.close');
 
-      if (modal && modalImg && imageContainers.length > 0 && prevBtn && nextBtn && closeButton) {
-        let currentIndex = 0;
-        let filteredImages = [];
+      if (!modal || !modalImg || imageContainers.length === 0 || !prevBtn || !nextBtn || !closeButton) return;
 
-        const isMobile = () => window.innerWidth <= 768;
+      let currentIndex = 0;
+      let filteredImages = [];
 
-        const showImage = (index) => {
-          const targetImg = filteredImages[index].querySelector('img');
-          const imgSrc =
-            isMobile() && targetImg.getAttribute('data-mobile-src')
-              ? targetImg.getAttribute('data-mobile-src')
-              : targetImg.src;
-          modalImg.src = imgSrc;
-        };
+      const isMobile = () => window.innerWidth <= 768;
 
-        const filterImages = (target) => {
-          filteredImages = Array.from(imageContainers).filter(
-            (container) => container.getAttribute('data-bs-target') === target,
-          );
-        };
+      const preloadImage = (src) => {
+        const img = new Image();
+        img.src = src;
+      };
 
-        imageContainers.forEach((container, index) => {
-          container.addEventListener('click', function () {
-            const targetModalId = container.getAttribute('data-bs-target');
-            filterImages(targetModalId);
-            currentIndex = filteredImages.indexOf(container);
-            showImage(currentIndex);
-            modal.setAttribute('id', targetModalId.replace('#', ''));
+      const getImageSrc = (img) => {
+        return isMobile() && img.getAttribute('data-mobile-src')
+          ? img.getAttribute('data-mobile-src')
+          : img.getAttribute('src');
+      };
 
-            modal.style.display = 'block';
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden';
-          });
-        });
+      const showImage = (index) => {
+        const targetImg = filteredImages[index].querySelector('img');
+        const imgSrc = getImageSrc(targetImg);
+        modalImg.src = imgSrc;
+      };
 
-        prevBtn.addEventListener('click', function () {
-          currentIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
+      const filterImages = (target) => {
+        filteredImages = Array.from(imageContainers).filter(
+          (container) => container.getAttribute('data-bs-target') === target,
+        );
+      };
+
+      imageContainers.forEach((container) => {
+        const targetImg = container.querySelector('img');
+
+        preloadImage(getImageSrc(targetImg));
+
+        container.addEventListener('click', function () {
+          const targetModalId = container.getAttribute('data-bs-target');
+          filterImages(targetModalId);
+          currentIndex = filteredImages.indexOf(container);
           showImage(currentIndex);
+          modal.setAttribute('id', targetModalId.replace('#', ''));
+
+          modal.style.display = 'block';
+          modal.classList.add('show');
+          document.body.style.overflow = 'hidden';
+          document.documentElement.style.overflow = 'hidden';
         });
+      });
 
-        nextBtn.addEventListener('click', function () {
-          currentIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
-          showImage(currentIndex);
-        });
+      prevBtn.addEventListener('click', function () {
+        currentIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
+        showImage(currentIndex);
+      });
 
-        const closeModal = () => {
-          modal.style.display = 'none';
-          modal.classList.remove('show');
-          document.body.style.overflow = '';
-          document.documentElement.style.overflow = '';
-        };
+      nextBtn.addEventListener('click', function () {
+        currentIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
+        showImage(currentIndex);
+      });
 
-        closeButton.addEventListener('click', function () {
+      const closeModal = () => {
+        modal.style.display = 'none';
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+      };
+
+      closeButton.addEventListener('click', closeModal);
+
+      window.addEventListener('click', function (event) {
+        if (event.target === modal) {
           closeModal();
-        });
+        }
+      });
 
-        window.addEventListener('click', function (event) {
-          if (event.target === modal) {
-            closeModal();
-          }
-        });
-
-        $(modal).on('hidden.bs.modal', function () {
-          closeModal();
-        });
-      }
+      $(modal).on('hidden.bs.modal', closeModal);
     },
 
     activateFeatherIcons: function () {
