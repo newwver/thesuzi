@@ -8744,7 +8744,7 @@ body.modal-open {
 }
 .modal .modal-dialog {
   width: 100%;
-  max-width: 1000px;
+  max-width: 85vh;
 }
 .modal .modal-dialog .modal-content {
   padding: 45px;
@@ -8901,6 +8901,7 @@ button.close {
   right: -30px;
   display: flex;
   justify-content: space-between;
+  transform: translate(0, -50%);
   transition: all 0.3s;
 }
 .modal .modal-dialog .modal-content .modal-body .arrow-btn a {
@@ -8962,7 +8963,19 @@ button.close {
   max-width: 100%;
   height: auto;
 }
-
+@media screen and (max-width: 575px) {
+  .modal .modal-dialog .modal-content .modal-body .arrow-btn {
+    left: -15px;
+    right: -15px;
+  }
+  .modal .modal-dialog .modal-content .modal-body .arrow-btn a {
+    width: 36px;
+  }
+  .modal .modal-dialog .modal-content .modal-body .arrow-btn i {
+    width: 17px;
+    height: 20px;
+  }
+}
 /*---------------------------
     brand
 -----------------------------*/

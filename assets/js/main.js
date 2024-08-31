@@ -102,8 +102,9 @@
       const imageContainers = document.querySelectorAll('.sec-portfolio');
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
+      const closeButton = document.querySelector('.close');
 
-      if (modal && modalImg && imageContainers.length > 0 && prevBtn && nextBtn) {
+      if (modal && modalImg && imageContainers.length > 0 && prevBtn && nextBtn && closeButton) {
         let currentIndex = 0;
         let filteredImages = [];
 
@@ -143,20 +144,25 @@
           showImage(currentIndex);
         });
 
-        document.querySelector('.close').addEventListener('click', function () {
+        const closeModal = () => {
           modal.style.display = 'none';
           modal.classList.remove('show');
           document.body.style.overflow = '';
           document.documentElement.style.overflow = '';
+        };
+
+        closeButton.addEventListener('click', function () {
+          closeModal();
         });
 
         window.addEventListener('click', function (event) {
           if (event.target === modal) {
-            modal.style.display = 'none';
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
+            closeModal();
           }
+        });
+
+        $(modal).on('hidden.bs.modal', function () {
+          closeModal();
         });
       }
     },
