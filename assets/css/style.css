@@ -8730,7 +8730,7 @@ html[lang='ko'] .slide .content span.subtitle {
 -----------------------------*/
 .modal {
   z-index: 99999999;
-  background: rgb(0 0 0 / 85%);
+  background: rgb(0 0 0 / 75%);
   padding: 60px 15px !important;
   overflow: auto;
   scrollbar-width: none;
@@ -8744,7 +8744,7 @@ body.modal-open {
 }
 .modal .modal-dialog {
   width: 100%;
-  max-width: 40vw;
+  max-width: 1000px;
 }
 .modal .modal-dialog .modal-content {
   padding: 45px;
@@ -9879,7 +9879,7 @@ button.close {
   background-color: rgb(255 255 255 / 35%);
   border: 1px solid #dddddd;
   text-align: center;
-  min-width: 7rem;
+  min-width: 7.5rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 .sec-header.header--fixed.sticky .nav-item.dropdown .dropdown-menu {

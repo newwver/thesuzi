@@ -125,7 +125,11 @@
             currentIndex = filteredImages.indexOf(container);
             showImage(currentIndex);
             modal.setAttribute('id', targetModalId.replace('#', ''));
-            $(modal).modal('show');
+
+            modal.style.display = 'block';
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
           });
         });
 
@@ -137,6 +141,22 @@
         nextBtn.addEventListener('click', function () {
           currentIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
           showImage(currentIndex);
+        });
+
+        document.querySelector('.close').addEventListener('click', function () {
+          modal.style.display = 'none';
+          modal.classList.remove('show');
+          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
+        });
+
+        window.addEventListener('click', function (event) {
+          if (event.target === modal) {
+            modal.style.display = 'none';
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+          }
         });
       }
     },
@@ -192,8 +212,9 @@
 
     mobileMenuActive: function () {
       const _this = this;
+      _this._html = $('html');
 
-      $('.humberger-menu').on('click', function (e) {
+      $('.hamburger-menu').on('click', function (e) {
         e.preventDefault();
         $('.popup-mobile-menu').addClass('menu-open');
         _this._html.css({ overflow: 'hidden' });
