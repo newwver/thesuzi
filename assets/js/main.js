@@ -108,9 +108,15 @@
         let currentIndex = 0;
         let filteredImages = [];
 
+        const isMobile = () => window.innerWidth <= 768;
+
         const showImage = (index) => {
           const targetImg = filteredImages[index].querySelector('img');
-          modalImg.src = targetImg.src;
+          const imgSrc =
+            isMobile() && targetImg.getAttribute('data-mobile-src')
+              ? targetImg.getAttribute('data-mobile-src')
+              : targetImg.src;
+          modalImg.src = imgSrc;
         };
 
         const filterImages = (target) => {
