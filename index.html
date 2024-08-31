@@ -11,7 +11,7 @@
     />
     <meta name="keywords" content="Gangnam semi-permanent makeup, Seoul semi-permanent" />
     <meta name="author" content="THESUZI" />
-    <meta name="robots" content="noindex, follow" />
+    <meta name="robots" content="index, follow" />
     <meta name="robots" content="max-image-preview:large" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="THE SUZI - Enhance your natural beauty with timeless allure." />
@@ -23,11 +23,11 @@
     <meta property="og:image:width" content="456" />
     <meta property="og:image:height" content="441" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" async />
+    <link rel="stylesheet" rel="lazyload" href="assets/css/lib/bootstrap.min.css" async />
     <link rel="stylesheet" href="assets/css/lib/slick.css" />
     <link rel="stylesheet" href="assets/css/lib/slick-theme.css" />
     <link rel="stylesheet" href="assets/css/lib/aos.css" />
-    <link rel="stylesheet" rel="preload" href="assets/css/style.css" />
+    <link rel="stylesheet" rel="preload" href="assets/css/style.min.css" />
     <meta name="twitter:title" content="THE SUZI - Enhance your natural beauty with timeless allure." />
     <meta name="twitter:image" content="https://newwver.github.io/thesuzi/assets/images/other/visual.jpg" />
     <meta
@@ -45,7 +45,7 @@
         <div class="col-6 col-lg-2">
           <div class="header-logo">
             <div class="logo">
-              <a href="javascript:void(0);" class="header-logo--text" onClick="window.location.reload();"> THE SUZI </a>
+              <a class="header-logo--text" href="#" onClick="window.location.reload();"> THE SUZI </a>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
         <div class="menu-top">
           <div class="menu-header">
             <a class="logo" href="index.html">
-              <img src="./assets/images/img_menu.png" load="lazy" alt="Portfolio" />
+              <img src="./assets/images/img_menu.png" loading="lazy" alt="Portfolio" />
             </a>
             <div class="close-button">
               <button class="close-menu-activation close"><i data-feather="x"></i></button>
@@ -124,7 +124,7 @@
             <li class="has-droupdown">
               <a class="nav-link" href="#">Language</a>
               <ul class="submenu">
-                <li><a href="javascript:void(0);" onClick="window.location.reload();">English</a></li>
+                <li><a onClick="window.location.reload();">English</a></li>
                 <li><a href="./index_ko.html" target="_self">Korean</a></li>
               </ul>
             </li>
@@ -173,7 +173,6 @@
               class="col-xl-4 col-lg-4 col-md-5 about-preview"
               data-aos="fade-up"
               data-aos-delay="100"
-              data-aos-duration="500"
               data-aos-once="true"
             >
               <div class="content">
@@ -184,7 +183,6 @@
               class="col-xl-6 col-md-7 mt-md-3 mt-xl-5 slide-wrap"
               data-aos="fade-up"
               data-aos-delay="300"
-              data-aos-duration="500"
               data-aos-once="true"
             >
               <!-- [s] Slide Piece -->
@@ -264,13 +262,7 @@
 
       <!-- [s] Brand -->
       <div class="bumper seperator type-7" id="brand">
-        <div
-          data-aos="fade-up"
-          data-aos-duration="500"
-          data-aos-delay="100"
-          data-aos-once="true"
-          class="section-title text-center"
-        >
+        <div data-aos="fade-up" data-aos-duration="500" data-aos-once="true" class="section-title text-center">
           <h2 class="title">Brand</h2>
         </div>
         <div class="container">
@@ -305,13 +297,7 @@
       <!-- [s] Portfolio -->
       <div class="bumper seperator" id="portfolio">
         <div class="container">
-          <div
-            data-aos="fade-up"
-            data-aos-duration="500"
-            data-aos-delay="100"
-            data-aos-once="true"
-            class="section-title text-center"
-          >
+          <div data-aos="fade-up" data-aos-duration="500" data-aos-once="true" class="section-title text-center">
             <h2 class="title">portfolio</h2>
           </div>
 
@@ -627,22 +613,22 @@
                 <ul class="sns-list">
                   <li data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true">
                     <a href="https://www.instagram.com/the_suzizi/" target="_blank">
-                      <img src="assets/images/icons/instagram.svg" alt="instagram" />
+                      <img loading="lazy" src="assets/images/icons/instagram.svg" alt="instagram" />
                     </a>
                   </li>
                   <li data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">
                     <a href="https://open.kakao.com/o/sBIca0Qf" target="_blank">
-                      <img src="assets/images/icons/kakotalk.svg" alt="kakotalk" />
+                      <img loading="lazy" src="assets/images/icons/kakotalk.svg" alt="kakotalk" />
                     </a>
                   </li>
                   <li data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
                     <a href="tel:+01075733137" target="_blank">
-                      <img src="assets/images/icons/call.svg" alt="call" />
+                      <img loading="lazy" src="assets/images/icons/call.svg" alt="call" />
                     </a>
                   </li>
                   <li data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-once="true">
                     <a href="https://line.me/ti/p/baTy7jOJU1" target="_blank">
-                      <img src="assets/images/icons/line.svg" alt="line" />
+                      <img loading="lazy" src="assets/images/icons/line.svg" alt="line" />
                     </a>
                   </li>
                 </ul>
