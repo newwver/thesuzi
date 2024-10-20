@@ -103,9 +103,10 @@
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
       const closeButton = document.querySelector('.close');
+      const viewportMeta = document.querySelector('meta[name="viewport"]'); // viewport 메타 태그 찾기
       let lastClickTime = 0;
     
-      if (!modal || !modalImg || imageContainers.length === 0 || !prevBtn || !nextBtn || !closeButton) return;
+      if (!modal || !modalImg || imageContainers.length === 0 || !prevBtn || !nextBtn || !closeButton || !viewportMeta) return;
     
       let currentIndex = 0;
       let filteredImages = [];
@@ -151,6 +152,9 @@
           modal.classList.add('show');
           document.body.style.overflow = 'hidden';
           document.documentElement.style.overflow = 'hidden';
+    
+          // 모달이 열릴 때 확대 기능 활성화
+          viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
         });
       });
     
@@ -173,6 +177,9 @@
         modal.classList.remove('show');
         document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
+    
+        // 모달이 닫힐 때 확대 기능 비활성화
+        viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
       };
     
       closeButton.addEventListener('click', closeModal);
