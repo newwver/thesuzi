@@ -7610,7 +7610,7 @@ html[lang='ko'] .slide .content span.subtitle {
 }
 #home {
   /* 이미지 출처: Pixabay */
-  background: url(../images/other/visual.jpg) no-repeat 50% 50%;
+  background: url(../images/other/visual.webp) no-repeat 50% 50%;
   background-attachment: scroll;
   background-size: cover;
 }

@@ -103,83 +103,88 @@
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
       const closeButton = document.querySelector('.close');
-
+      let lastClickTime = 0;
+    
       if (!modal || !modalImg || imageContainers.length === 0 || !prevBtn || !nextBtn || !closeButton) return;
-
+    
       let currentIndex = 0;
       let filteredImages = [];
-
+    
       const isMobile = () => window.innerWidth <= 768;
-
+    
       const preloadImage = (src) => {
         const img = new Image();
         img.src = src;
       };
-
+    
       const getImageSrc = (img) => {
         return isMobile() && img.getAttribute('data-mobile-src')
           ? img.getAttribute('data-mobile-src')
           : img.getAttribute('src');
       };
-
+    
       const showImage = (index) => {
         const targetImg = filteredImages[index].querySelector('img');
         const imgSrc = getImageSrc(targetImg);
         modalImg.src = imgSrc;
       };
-
+    
       const filterImages = (target) => {
         filteredImages = Array.from(imageContainers).filter(
           (container) => container.getAttribute('data-bs-target') === target,
         );
       };
-
+    
       imageContainers.forEach((container) => {
         const targetImg = container.querySelector('img');
-
+    
         preloadImage(getImageSrc(targetImg));
-
+    
         container.addEventListener('click', function () {
           const targetModalId = container.getAttribute('data-bs-target');
           filterImages(targetModalId);
           currentIndex = filteredImages.indexOf(container);
           showImage(currentIndex);
           modal.setAttribute('id', targetModalId.replace('#', ''));
-
+    
           modal.style.display = 'block';
           modal.classList.add('show');
           document.body.style.overflow = 'hidden';
           document.documentElement.style.overflow = 'hidden';
         });
       });
-
+    
       prevBtn.addEventListener('click', function () {
         currentIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
         showImage(currentIndex);
       });
-
+    
       nextBtn.addEventListener('click', function () {
         currentIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
         showImage(currentIndex);
       });
-
+    
       const closeModal = () => {
+        const now = new Date().getTime();
+        if (now - lastClickTime < 300) return; // 300ms 내 중복 클릭 방지
+        lastClickTime = now;
+    
         modal.style.display = 'none';
         modal.classList.remove('show');
         document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
       };
-
+    
       closeButton.addEventListener('click', closeModal);
-
+    
       window.addEventListener('click', function (event) {
-        if (event.target === modal) {
+        if (event.target.classList.contains('modal-backdrop')) {
           closeModal();
         }
       });
-
+    
       $(modal).on('hidden.bs.modal', closeModal);
-    },
+    },    
 
     activateFeatherIcons: function () {
       if (typeof feather !== 'undefined') {
