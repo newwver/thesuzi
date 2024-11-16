@@ -103,7 +103,7 @@
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
       const closeButton = document.querySelector('.close');
-      const viewportMeta = document.querySelector('meta[name="viewport"]'); // viewport 메타 태그 찾기
+      const viewportMeta = document.querySelector('meta[name="viewport"]');
       let lastClickTime = 0;
     
       if (!modal || !modalImg || imageContainers.length === 0 || !prevBtn || !nextBtn || !closeButton || !viewportMeta) return;
@@ -114,6 +114,7 @@
       const isMobile = () => window.innerWidth <= 768;
     
       const preloadImage = (src) => {
+        if (!src) return;
         const img = new Image();
         img.src = src;
       };
@@ -121,19 +122,33 @@
       const getImageSrc = (img) => {
         return isMobile() && img.getAttribute('data-mobile-src')
           ? img.getAttribute('data-mobile-src')
-          : img.getAttribute('src');
+          : img.getAttribute('data-src');
       };
     
       const showImage = (index) => {
         const targetImg = filteredImages[index].querySelector('img');
         const imgSrc = getImageSrc(targetImg);
-        modalImg.src = imgSrc;
+        if (imgSrc) {
+          modalImg.src = imgSrc;
+        }
       };
     
       const filterImages = (target) => {
         filteredImages = Array.from(imageContainers).filter(
           (container) => container.getAttribute('data-bs-target') === target,
         );
+      };
+    
+      const disableBodyScroll = () => {
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+      };
+    
+      const enableBodyScroll = () => {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
       };
     
       imageContainers.forEach((container) => {
@@ -150,10 +165,8 @@
     
           modal.style.display = 'block';
           modal.classList.add('show');
-          document.body.style.overflow = 'hidden';
-          document.documentElement.style.overflow = 'hidden';
+          disableBodyScroll();
     
-          // 모달이 열릴 때 확대 기능 활성화
           viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
         });
       });
@@ -175,17 +188,15 @@
     
         modal.style.display = 'none';
         modal.classList.remove('show');
-        document.body.style.overflow = '';
-        document.documentElement.style.overflow = '';
+        enableBodyScroll();
     
-        // 모달이 닫힐 때 확대 기능 비활성화
         viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
       };
     
       closeButton.addEventListener('click', closeModal);
     
       window.addEventListener('click', function (event) {
-        if (event.target.classList.contains('modal-backdrop')) {
+        if (event.target === modal || !modal.contains(event.target)) {
           closeModal();
         }
       });
