@@ -8708,7 +8708,7 @@ html[lang='ko'] .slide .content span.subtitle {
 -----------------------------*/
 .modal {
   z-index: 99999999;
-  background: rgb(0 0 0 / 70%);
+  background: rgb(0 0 0 / 80%);
   padding: 60px 15px !important;
   overflow: auto;
   scrollbar-width: none;
@@ -9310,6 +9310,7 @@ button.close {
   padding: 50px 20px;
   width: 100%;
   column-gap: 6%;
+  min-height: 503px;
 }
 .gallery .inner .about-desc:hover .external-text {
   color: var(--color-primary);
@@ -9409,8 +9410,9 @@ button.close {
   .gallery .inner .about-desc {
     display: block;
     max-width: 100%;
-    padding: 35px 30px;
+    padding: 10px 10px 30px;
     margin-top: 0;
+    min-height: 380px;
   }
 
   .gallery .inner .gallery-detail {
@@ -9641,8 +9643,10 @@ button.close {
 }
 @media only screen and (max-width: 767px) {
   .slide-wrap .slick-dots li button {
-    bottom: 3px;
     position: relative;
+    bottom: 3px;
+    width: 10px;
+    height: 10px;
   }
 }
 .slide-wrap .slick-dots li.slick-active button {
